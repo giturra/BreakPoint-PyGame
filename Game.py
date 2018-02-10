@@ -1,6 +1,6 @@
 import pygame
 import sys
-from Table import Block
+from Player import Block
 from pygame.locals import *
 
 
@@ -19,7 +19,7 @@ class Game(object):
         pygame.display.set_caption(self.title)
         print(self.surface)
 
-        block = Block()
+        block = Block((self.width, self.height))
 
         while True:
             for event in pygame.event.get():
@@ -27,8 +27,10 @@ class Game(object):
                 if event.type == QUIT:
                     pygame.quit()
                     sys.exit(0)
-            self.surface.blit(block.image, (self.width/2.0 - 100, self.height - 50))
+            block.draw(self.surface)
+            block.handle_keys()
             pygame.display.flip()
+            pygame.display.update()
 
 
 if __name__ == '__main__':
