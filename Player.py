@@ -1,10 +1,9 @@
 import pygame
 
+
 class Block(pygame.sprite.Sprite):
 
-
     def __init__(self, window_size):
-
 
         super(Block, self).__init__()
         self.initialize = True
@@ -17,9 +16,7 @@ class Block(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         print(self.rect)
 
-
     def handle_keys(self):
-
 
         key = pygame.key.get_pressed()
         dist = 1
@@ -32,8 +29,7 @@ class Block(pygame.sprite.Sprite):
 
 
     def draw(self, surface):
-        if self.initialize:
-            surface.blit(self.image, (self.window_size[0]/2.0 - self.x / 2.0, self.window_size[1] - self.y))
-            self.initialize = False
-        else:
-            surface.blit(self.image, (0, 0))
+
+        surface.blit(self.image, (self.window_size[0]/2.0 - self.x / 2.0, self.window_size[1] - self.y))
+
+
